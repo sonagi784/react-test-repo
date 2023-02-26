@@ -1,5 +1,7 @@
 public
 dist
+craco.config.js
 package.json
 package-lock.json
 tsconfig.json
+tsconfig.path.json

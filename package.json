@@ -18,10 +18,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -48,8 +47,10 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^7.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "tsconfig-paths-webpack-plugin": "^4.0.0"
   }
 }
