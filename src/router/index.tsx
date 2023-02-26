@@ -1,6 +1,6 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../components/common/layout/Layout';
-import Error from '../pages/Error'
+import Error from '../pages/Error';
 import Main from '../pages/main';
 import Search from '../pages/search';
 
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         element: <Search />,
       },
     ],
-  }
+  },
 ]);
 
-export { router }
+export { router };
