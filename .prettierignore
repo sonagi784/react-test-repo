@@ -1,6 +1,11 @@
-public
+node_modules
 dist
+build
+
+public
+
 craco.config.js
+
 package.json
 package-lock.json
 tsconfig.json
