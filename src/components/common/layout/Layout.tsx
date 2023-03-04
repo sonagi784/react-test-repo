@@ -5,16 +5,16 @@ import Footer from '@/components/common/footer/Footer';
 function Layout() {
   const headerProps = {
     left: [
-      { name: 'Home', url: 'HOME' },
-      { name: 'Error', url: 'ERROR' },
+      { name: 'Home', type: 'HOME' },
+      { name: 'Error', type: 'ERROR' },
     ],
-    right: [{ name: 'Search', url: 'SEARCH' }],
+    right: [{ name: 'Search', type: 'SEARCH' }],
     mid: { name: 'hello' },
   };
 
   return (
     <div className="App">
-      <Header left={headerProps?.left} right={headerProps?.right} mid={headerProps?.mid} />
+      <Header left={headerProps.left} right={headerProps.right} mid={headerProps.mid} />
       <Outlet />
       <Footer />
     </div>

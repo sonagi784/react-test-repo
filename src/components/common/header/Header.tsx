@@ -2,45 +2,51 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getUrl } from '@/utils/getUrl';
 
-interface INavInfo {
+interface IHeaderItem {
   name?: string;
-  url?: string;
+  type?: string;
 }
 
 interface IProps {
-  left?: INavInfo[];
-  right?: INavInfo[];
-  mid?: INavInfo;
+  left?: IHeaderItem[];
+  right?: IHeaderItem[];
+  mid?: IHeaderItem;
 }
 
-export default function Header({ left = [], right = [], mid = {} }: IProps) {
+const MAX_ITEM_COUNT = 2;
+
+function HeaderItem({ name, type }: IHeaderItem) {
+  return (
+    <Nav>
+      <Nav.Link as={Link} to={getUrl(type)}>
+        {name}
+      </Nav.Link>
+    </Nav>
+  );
+}
+
+function Header({ left = [], right = [], mid = {} }: IProps) {
   return (
     <Navbar bg="light">
       <Container>
         <Navbar.Collapse className="justify-content-start">
-          {left &&
-            left.slice(0, 2).map(({ name, url }) => (
-              <Nav>
-                <Nav.Link as={Link} to={getUrl(url || '')}>
-                  {name || ''}
-                </Nav.Link>
-              </Nav>
-            ))}
+          {left.slice(0, MAX_ITEM_COUNT).map((item, index) => (
+            <HeaderItem {...item} key={`header_left_${index}`} />
+          ))}
         </Navbar.Collapse>
-        <Navbar.Brand as={Link} to={getUrl(mid?.url || '')}>
-          {mid?.name || ''}
+        <Navbar.Brand>
+          <HeaderItem {...mid} />
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
-          {right &&
-            right.slice(0, 2).map(({ name, url }) => (
-              <Nav>
-                <Nav.Link as={Link} to={getUrl(url || '')}>
-                  {name || ''}
-                </Nav.Link>
-              </Nav>
-            ))}
+          {right.slice(0, MAX_ITEM_COUNT).map((item, index) => (
+            <HeaderItem {...item} key={`header_right_${index}`} />
+          ))}
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
+
+Header.Item = HeaderItem;
+
+export default Header;
