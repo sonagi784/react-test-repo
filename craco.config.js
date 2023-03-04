@@ -1,14 +1,19 @@
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const path = require('path')
 
 module.exports = {
-  plugins: [
-    {
-      plugin: {
-        overrideWebpackConfig: ({ webpackConfig }) => {
-          webpackConfig.resolve.plugins.push(new TsconfigPathsPlugin({}));
-          return webpackConfig;
-        }
-      }
-    }
-  ]
+  jest: {
+    setupFilesAfterEnv: [
+      './setupTests.ts',
+    ],
+    configure: {
+        moduleNameMapper: {
+            '^@/(.*)$': '<rootDir>/src/$1',
+        },
+    },
+  },
+  webpack: {
+    alias: {
+        '@': path.resolve(__dirname, 'src'),
+    },
+  },
 };

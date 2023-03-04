@@ -58,7 +58,6 @@
     "@craco/craco": "^7.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.4",
-    "tsconfig-paths-webpack-plugin": "^4.0.0"
+    "prettier": "^2.8.4"
   }
 }
