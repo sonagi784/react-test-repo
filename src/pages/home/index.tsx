@@ -1,3 +1,5 @@
+import SearchForm from '@/components/home/SearchForm';
+
 export default function Home() {
-  return <div>home</div>;
+  return <SearchForm label="키워드를 입력하면, 이미지를 찾아드려요" placeholder="키워드" />;
 }
